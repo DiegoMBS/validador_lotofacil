@@ -1,0 +1,397 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #121526;
+  --bg-card: rgba(22, 27, 45, 0.85);
+  --fg: #e8e4d9;
+  --fg-muted: #6b7194;
+  --gold: #f0b429;
+  --gold-dark: #c48a1a;
+  --green: #34d399;
+  --green-dark: #059669;
+  --border: rgba(255, 255, 255, 0.06);
+  --secondary: rgba(255, 255, 255, 0.04);
+  --shadow-card: 0 8px 32px -8px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 0 14px rgba(240, 180, 41, 0.3);
+  --shadow-green: 0 0 14px rgba(52, 211, 153, 0.3);
+  --radius: 16px;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(240, 180, 41, 0.06), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(52, 211, 153, 0.04), transparent);
+}
+
+/* ── Header ── */
+.top-bar {
+  border-bottom: 1px solid var(--border);
+  background: rgba(22, 27, 45, 0.6);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 12px 0;
+}
+
+.top-bar .inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.top-bar .logo {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.top-bar .live {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--fg-muted);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: .35
+  }
+}
+
+/* ── Container ── */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+}
+
+/* ── Glass Card ── */
+.glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+/* ── Result Header ── */
+.result-header {
+  text-align: center;
+}
+
+.result-title {
+  font-size: 28px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.result-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 16px 0 20px;
+}
+
+.meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--secondary);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 13px;
+  color: var(--fg-muted);
+}
+
+.meta-badge strong {
+  color: var(--fg);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── Number Balls ── */
+.numbers-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ball {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--fg-muted);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.ball.result {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--bg);
+  border-color: var(--gold);
+  box-shadow: var(--shadow-gold);
+}
+
+.ball.hit {
+  background: var(--green);
+  color: var(--bg);
+  border-color: var(--green);
+  box-shadow: var(--shadow-green);
+}
+
+.ball.small {
+  width: 36px;
+  height: 36px;
+  font-size: 12px;
+}
+
+/* ── Section Title ── */
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-title .bar {
+  width: 4px;
+  height: 20px;
+  background: var(--gold);
+  border-radius: 4px;
+}
+
+/* ── Games Grid ── */
+.games-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 640px) {
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.game-card {
+  position: relative;
+}
+
+.game-card.winner {
+  border-color: rgba(52, 211, 153, 0.4) !important;
+  box-shadow: var(--shadow-green), inset 0 1px 0 rgba(52, 211, 153, 0.08);
+}
+
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.game-name {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.acertos-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--secondary);
+  color: var(--fg-muted);
+}
+
+.acertos-badge.win {
+  background: rgba(52, 211, 153, 0.12);
+  color: var(--green);
+}
+
+.acertos-badge .icon {
+  font-size: 14px;
+}
+
+.game-numbers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.prize-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.15);
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+
+.prize-box .icon {
+  font-size: 20px;
+}
+
+.prize-label {
+  font-size: 11px;
+  color: rgba(52, 211, 153, 0.7);
+}
+
+.prize-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+/* ── Prize Table ── */
+.prize-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--secondary);
+  border-radius: 10px;
+  padding: 10px 16px;
+  margin-bottom: 6px;
+}
+
+.prize-desc {
+  font-size: 13px;
+}
+
+.prize-desc .winners {
+  color: var(--fg-muted);
+  font-size: 12px;
+  margin-left: 6px;
+}
+
+.prize-amount {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+/* ── Loading & Error ── */
+.center-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  gap: 16px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn-retry {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--secondary);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  padding: 8px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Outfit';
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.btn-retry:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ── Footer ── */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 16px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--fg-muted);
+}
+
+/* ── Animations ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.delay-1 {
+  animation-delay: .1s;
+}
+
+.delay-2 {
+  animation-delay: .2s;
+}
+
+.delay-3 {
+  animation-delay: .3s;
+}
+
+.delay-4 {
+  animation-delay: .4s;
+}
