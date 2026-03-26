@@ -11,6 +11,10 @@ const jogo5 = [1, 3, 4, 5, 7, 9, 10, 11, 13, 15, 16, 18, 20, 22, 25];
 const jogo6 = [1, 2, 3, 6, 8, 9, 11, 12, 15, 17, 18, 20, 22, 23, 24];
 const jogo7 = [3, 5, 7, 8, 9, 10, 13, 14, 17, 18, 19, 20, 22, 24, 25];
 const jogo8 = [2, 4, 5, 7, 8, 10, 11, 13, 16, 17, 19, 20, 22, 24, 25];
+const jogo9 = [1, 2, 3, 4, 5, 9, 10, 12, 15, 16, 18, 20, 21, 24, 25];
+const jogo10 = [3, 5, 6, 8, 9, 10, 12, 13, 15, 16, 18, 20, 22, 23, 25];
+const jogo11 = [1, 3, 7, 8, 10, 11, 12, 14, 17, 18, 21, 22, 23, 24, 25];
+
 
 const jogos = [
   { nome: "Jogo 1", numeros: jogo1 },
@@ -21,6 +25,9 @@ const jogos = [
   { nome: "Jogo 6", numeros: jogo6 },
   { nome: "Jogo 7", numeros: jogo7 },
   { nome: "Jogo 8", numeros: jogo8 },
+  { nome: "Jogo 8", numeros: jogo9 },
+  { nome: "Jogo 8", numeros: jogo10 },
+  { nome: "Jogo 8", numeros: jogo11 },
 ];
 
 // ══════════════════════════════════════════
