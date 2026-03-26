@@ -25,9 +25,9 @@ const jogos = [
   { nome: "Jogo 6", numeros: jogo6 },
   { nome: "Jogo 7", numeros: jogo7 },
   { nome: "Jogo 8", numeros: jogo8 },
-  { nome: "Jogo 8", numeros: jogo9 },
-  { nome: "Jogo 8", numeros: jogo10 },
-  { nome: "Jogo 8", numeros: jogo11 },
+  { nome: "Jogo 9", numeros: jogo9 },
+  { nome: "Jogo 10", numeros: jogo10 },
+  { nome: "Jogo 11", numeros: jogo11 },
 ];
 
 // ══════════════════════════════════════════
